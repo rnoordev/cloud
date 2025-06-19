@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <meta charset="UTF-8">
+  <title>Document Analytics</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+  <div class="container mt-5">
+    <h1 class="mb-4 text-center">📊 Document Analytics Dashboard</h1>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">📁 Current Stats</h5>
+        <p>Total Files: <strong>{{ stats.count }}</strong></p>
+        <p>Total Size: <strong>{{ stats.size_kb }} KB</strong></p>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">📤 Upload Document</h5>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <input type="file" name="file" class="form-control">
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">🔎 Actions</h5>
+        <a href="/sort" class="btn btn-outline-secondary me-2">Sort Documents</a>
+        <a href="/classify" class="btn btn-outline-secondary me-2">Classify</a>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <form action="/search" method="post">
+          <label for="keywords" class="form-label">Search Documents</label>
+          <input type="text" name="keywords" class="form-control mb-2" placeholder="e.g. climate, report">
+          <button type="submit" class="btn btn-success">Search</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
